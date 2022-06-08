@@ -1,0 +1,44 @@
+# adjacency list representation of undirected graph
+from queue import Queue
+
+v=5
+graph=[[]for i in range(v) ]
+
+#adding all edges b/t two vertex
+def add(src,desti):
+    graph[src].append(desti)
+    graph[desti].append(src)
+
+def bfs(src_vertex):
+    visited=[False]*5
+    q = Queue(maxsize=0)
+    q.put(src_vertex)
+    visited[src_vertex]=True
+    while not q.empty():
+        dequed_vertex=q.get()
+        print(dequed_vertex)
+        for i in graph[dequed_vertex]:
+            if visited[i]==False:
+                visited[i]=True
+                q.put(i)
+        
+
+def printgrph(grph):
+    for i,j in enumerate(grph):
+        print("edges for vertex %d are: " %(i) ,j ,end="\n")
+
+ 
+#adding edges to the graph
+add(0,1)
+add(0,4)
+add(0,3)
+add(1,2)
+add(2,3)
+add(3,4)
+
+#passing source/root vertex for bfs
+bfs(0)       
+
+
+
+
