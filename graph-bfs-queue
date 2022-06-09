@@ -7,7 +7,7 @@ graph=[[]for i in range(v) ]
 #adding all edges b/t two vertex
 def add(src,desti):
     graph[src].append(desti)
-    graph[desti].append(src)
+    graph[desti].append(src) # include this only for undirected graph
 
 def bfs(src_vertex):
     visited=[False]*5
